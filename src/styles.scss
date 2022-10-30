@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/foundation-icons/foundation-icons.css";
+
+:root {
+    --youtube-red: #fe0900;
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+    }
+}
+html {
+    box-sizing: border-box;
+    font-family: "YouTube Noto", Roboto, Arial, Helvetica, sans-serif;
+    height: 100%;
+    
+    body {
+        height: 100%;
+    }
+}

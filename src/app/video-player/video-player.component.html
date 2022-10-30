@@ -1,9 +1,28 @@
 
+<div class="container">
+  <div class="video-container">
+    <video
+      controls
+      class="video"
+      id="video"
+      preload="metadata"
+      poster="../../assets/di.jpg"
+      #video
+    >
+      <source src="../../assets/video.mp4" type="video/mp4" />
+    </video>
 
-<video controls class="video" id="video" preload="metadata" poster="../../assets/di.jpg" #video>
- <source src="../../assets/video.mp4" type="video/mp4">
-</video>
+    <div class="video-controls hidden" id="video-controls" #videoControls>
+      <!-- Custom controls -->
 
-<div class="video-controls hidden" id="video-controls" #videoControls>
-    <!-- Custom controls -->
+      <div class="bottom-controls">
+        <div class="left-controls">
+            <button data-title="Play (k)" id="play">
+                <i class="fi-play-video hidden" ></i>
+            </button>       
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
