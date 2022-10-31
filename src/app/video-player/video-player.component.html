@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="video-container">
     <video
@@ -17,12 +16,13 @@
 
       <div class="bottom-controls">
         <div class="left-controls">
-            <button data-title="Play (k)" id="play">
-                <i class="fi-play-video hidden" ></i>
-            </button>       
+          <button data-title="Play (k)" id="play" (click)="togglePlay()" #play>
+            <div *ngIf="hide; then playIcon; else pauseIcon"></div>
+            <ng-template #playIcon> <i class="fi-play-video"></i></ng-template>
+            <ng-template #pauseIcon> <i class="fi-pause"></i></ng-template>
+          </button>
         </div>
       </div>
     </div>
   </div>
 </div>
-

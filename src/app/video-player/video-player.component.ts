@@ -7,15 +7,21 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 })
 export class VideoPlayerComponent implements OnInit, AfterViewInit {
   @ViewChild('video')
-  video!: ElementRef;
+  video!: ElementRef<HTMLVideoElement>;
   @ViewChild('videoControls')
-  videoControls!: ElementRef;
+  videoControls!: ElementRef<HTMLElement>;
+  @ViewChild('play')
+  play!: ElementRef<HTMLElement>;
+  hide: boolean;
 
-  constructor() { }
+  constructor() {
+    this.hide = true;
+    
+  }
 
   ngOnInit(): void {
-   
   }
+  
 
   ngAfterViewInit(): void {
     this.checkVideoWorks();
@@ -26,6 +32,18 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
     if (videoWorks) {
       this.video.nativeElement.controls = false;
       this.videoControls.nativeElement.classList.remove('hidden');
+    }
+  }
+
+  togglePlay() {
+    if (this.video.nativeElement.paused || this.video.nativeElement.ended) {
+      this.play.nativeElement.setAttribute('data-title', 'Pause (k)');
+      this.video.nativeElement.play();
+      this.hide = false;
+    } else {
+      this.play.nativeElement.setAttribute('data-title', 'Play (k)');
+      this.video.nativeElement.pause();
+      this.hide = true;
     }
   }
 }
